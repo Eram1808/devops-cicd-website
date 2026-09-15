@@ -11,12 +11,29 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy to S3 and CloudFront
+    name: Test, Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Test website files
+        run: |
+          echo "Running website validation..."
+          test -f index.html
+          test -f style.css
+          test -f script.js
+          grep -q "<html" index.html
+          echo "Website validation passed!"
+
+      - name: Build and package website
+        run: |
+          echo "Building website package..."
+          mkdir -p dist
+          cp index.html style.css script.js dist/
+          echo "Website package created in dist/"
+          ls -la dist/
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -26,10 +43,8 @@ jobs:
 
       - name: Deploy website to S3
         run: |
-          aws s3 sync . s3://devops-cicd-website-eram1808 \
-            --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*"
+          aws s3 sync dist/ s3://devops-cicd-website-eram1808 \
+            --delete
 
       - name: Invalidate CloudFront cache
         run: |
