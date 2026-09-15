@@ -1,0 +1,38 @@
+name: Deploy Website to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to S3 and CloudFront
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::056319544863:role/GitHubActions-DevOpsCICD
+          aws-region: ap-south-1
+
+      - name: Deploy website to S3
+        run: |
+          aws s3 sync . s3://devops-cicd-website-eram1808 \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*"
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id EJUWW3UOTPKDS \
+            --paths "/*"
