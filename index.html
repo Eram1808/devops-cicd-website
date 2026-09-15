@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps CI/CD Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-mark">◆</span>
+            DevOps<span>Flow</span>
+        </div>
+
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            Production
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    AWS CLOUD DEPLOYMENT
+                </div>
+
+                <h1>
+                    CI/CD Deployment
+                    <span>Dashboard</span>
+                </h1>
+
+                <p>
+                    A simple website deployed automatically through
+                    GitHub Actions and hosted on AWS.
+                </p>
+
+                <div class="hero-actions">
+                    <span class="live-badge">
+                        <span class="status-dot"></span>
+                        Deployment Successful
+                    </span>
+
+                    <span class="version">
+                        Version <strong id="version">1.0</strong>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+                <div class="cloud-icon">☁</div>
+                <div class="pipeline-line"></div>
+                <div class="server-icon">▣</div>
+            </div>
+        </section>
+
+
+        <section class="pipeline">
+
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">DEPLOYMENT PIPELINE</div>
+                    <h2>From Code to Production</h2>
+                </div>
+            </div>
+
+            <div class="pipeline-grid">
+
+                <div class="pipeline-card">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">⌘</div>
+                    <h3>Code Push</h3>
+                    <p>
+                        Source code is maintained in a GitHub repository.
+                    </p>
+                </div>
+
+                <div class="pipeline-arrow">→</div>
+
+                <div class="pipeline-card">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">⚙</div>
+                    <h3>GitHub Actions</h3>
+                    <p>
+                        Automated workflow runs whenever code reaches main.
+                    </p>
+                </div>
+
+                <div class="pipeline-arrow">→</div>
+
+                <div class="pipeline-card">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">✓</div>
+                    <h3>Test & Build</h3>
+                    <p>
+                        The website is validated and packaged for deployment.
+                    </p>
+                </div>
+
+                <div class="pipeline-arrow">→</div>
+
+                <div class="pipeline-card">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">☁</div>
+                    <h3>AWS Deployment</h3>
+                    <p>
+                        The latest build is deployed to Amazon S3.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="infrastructure">
+
+            <div class="section-heading">
+                <div>
+                    <div class="eyebrow">AWS INFRASTRUCTURE</div>
+                    <h2>Deployment Architecture</h2>
+                </div>
+            </div>
+
+            <div class="infra-grid">
+
+                <div class="infra-card">
+                    <span class="infra-label">SOURCE</span>
+                    <h3>GitHub</h3>
+                    <p>Version-controlled source code</p>
+                </div>
+
+                <div class="infra-card">
+                    <span class="infra-label">CI/CD</span>
+                    <h3>GitHub Actions</h3>
+                    <p>Automated test, build and deployment</p>
+                </div>
+
+                <div class="infra-card">
+                    <span class="infra-label">STORAGE</span>
+                    <h3>Amazon S3</h3>
+                    <p>Static website hosting</p>
+                </div>
+
+                <div class="infra-card">
+                    <span class="infra-label">DELIVERY</span>
+                    <h3>CloudFront</h3>
+                    <p>Global content delivery</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="deployment-status">
+
+            <div class="status-content">
+
+                <div class="status-indicator">
+                    <span class="large-dot"></span>
+                </div>
+
+                <div>
+                    <div class="eyebrow">CURRENT DEPLOYMENT</div>
+
+                    <h2>
+                        Production deployment is healthy
+                    </h2>
+
+                    <p>
+                        Website successfully delivered through the
+                        automated CI/CD pipeline.
+                    </p>
+                </div>
+
+                <div class="deployment-meta">
+                    <div>
+                        <span>VERSION</span>
+                        <strong id="status-version">1.0</strong>
+                    </div>
+
+                    <div>
+                        <span>ENVIRONMENT</span>
+                        <strong>Production</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            DevOps Fundamentals Practical Assignment
+        </p>
+
+        <p>
+            GitHub Actions • Amazon S3 • CloudFront
+        </p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
